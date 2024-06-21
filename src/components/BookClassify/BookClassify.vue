@@ -33,7 +33,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(['username'])
+    ...mapState(
+      {
+        username: (state) => state.username,}
+    )
   },
   methods: {
     toggleSubmenu() {
