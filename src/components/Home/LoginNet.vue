@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import axios from 'axios'; // 导入 axios
+
 export default {
   data() {
     return {
@@ -33,8 +35,21 @@ export default {
       if (this.name.trim() === '' || this.pwd.trim() === '') {
         alert("请填写完整您的信息");
       } else {
-        this.$store.commit('setUsername', this.name);
-        this.$router.push('/Home');
+        axios.get('/user.json')
+          .then(res => {
+            const users = res.data['users'];
+            const user = users.find(user => user.name === this.name && user.pwd === this.pwd);
+            if (user) {
+              this.$store.commit('setUsername', this.name);
+              this.$router.push('/Home');
+            } else {
+              alert("用户名或密码错误");
+            }
+          })
+          .catch(error => {
+            console.log(error)
+            alert('登录失败');
+          });
       }
     },
     resetForm() {
