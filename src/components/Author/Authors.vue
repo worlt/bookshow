@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <aside class="aside-container">
-      <ClassIfy></ClassIfy>
+      <SideBar></SideBar>
     </aside>
     <main class="main-container">
       <div class="card-container">
@@ -16,11 +16,11 @@
 
 <script>
 import Data from "@/JsonData/BooksData.json";
-import ClassIfy from "@/components/BookClassify/BookClassify.vue";
+import SideBar from "@/components/Home/Sidebar.vue";
 
 export default {
   name: "AllAuthor",
-  components: { ClassIfy },
+  components: { SideBar },
   data() {
     return {
       Authors: Data

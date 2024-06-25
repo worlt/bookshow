@@ -19,31 +19,31 @@ const routes = [
   {
     path: '/LiteraTure',
     name: 'LiteraTure',
-    component: () => import('@/components/BookClassify/LiteraTure.vue')
+    component: () => import('@/components/Book/LiteraTure.vue')
   },
 
   {
     path: '/NaturalScience',
     name: 'NaturalScience',
-    component: () => import('@/components/BookClassify/NaturalScience.vue')
+    component: () => import('@/components/Book/NaturalScience.vue')
   },
 
   {
     path: '/ComputerScience',
     name: 'ComputerScience',
-    component: () => import('@/components/BookClassify/ComputerScience.vue')
+    component: () => import('@/components/Book/ComputerScience.vue')
   },
 
   {
     path: '/ChemistrY',
     name: 'ChemistrY',
-    component: () => import('@/components/BookClassify/ChemistrY.vue')
+    component: () => import('@/components/Book/ChemistrY.vue')
   },
 
   {
     path: '/Book/',
     name: 'Book',
-    component: () => import('@/components/Home/BookDetails.vue')
+    component: () => import('@/components/Book/BookDetails.vue')
   },
 
   {

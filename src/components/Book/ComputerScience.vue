@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <aside class="aside-container">
-      <ClassIfy></ClassIfy>
+      <SideBar></SideBar>
     </aside>
     <main class="main-container">
       <div class="card-container">
@@ -24,15 +24,15 @@
 
 <script>
 import Data from '@/JsonData/BooksData.json';
-import ClassIfy from "@/components/BookClassify/BookClassify.vue";
+import SideBar from "@/components/Home/Sidebar.vue";
 
 export default {
-  name: "ChemistrY",
-  components: { ClassIfy },
+  name: "ComputerScience",
+  components: { SideBar },
   data() {
     return {
       Books: Data,
-      category: '化学', // 筛选的类别
+      category: '计算机科学', // 筛选的类别
       showHover: []
     };
   },
@@ -147,3 +147,4 @@ export default {
   }
 }
 </style>
+

@@ -26,7 +26,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  name: "ClassIfy",
+  name: "SideBar",
   data() {
     return {
       isSubmenuOpen: true ,

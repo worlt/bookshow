@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <aside class="aside-container">
-      <ClassIfy></ClassIfy>
+      <SideBar></SideBar>
     </aside>
     <div class="main-container">
       <div class="card-container">
-        <div v-for="(book, index) in books" :key="index" class="book-card" @click="nameTo(book)"
-             @mouseout="showHoverFalse(index)" @mouseover="showHoverTrue(index)">
+        <div v-for="(book, index) in books" :key="index" class="book-card" @click="nameTo(book)" @mouseout="showHoverFalse(index)" @mouseover="showHoverTrue(index)">
           <img :src="require('@/assets/BooksImg/' + book.books.Image)" class="book-image">
           <div class="book-name">{{ book.books.name }}</div>
           <div class="hover-container">
@@ -25,11 +24,11 @@
 
 <script>
 import Data from '@/JsonData/BooksData.json';
-import ClassIfy from "@/components/BookClassify/BookClassify.vue";
+import SideBar from "@/components/Home/Sidebar.vue";
 
 export default {
   name: 'IndeX',
-  components: {ClassIfy},
+  components: {SideBar},
 
   data() {
     return {
