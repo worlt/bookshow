@@ -28,7 +28,7 @@ import SideBar from "@/components/Home/Sidebar.vue";
 
 export default {
   name: 'IndeX',
-  components: {SideBar},
+  components: { SideBar },
 
   data() {
     return {
@@ -38,13 +38,13 @@ export default {
   },
 
   created() {
-    this.showHover = new Array(this.books.length).fill(false); // 根据书籍数量初始化 showHover 数组
+    this.showHover = new Array(this.books.length).fill(false); // Initialize showHover array based on the number of books
   },
 
   methods: {
     nameTo(book) {
-      const query = {All: JSON.stringify(book)};
-      this.$router.push({path: `/Book/`, query});
+      const query = { All: JSON.stringify(book) };
+      this.$router.push({ path: `/Book/`, query });
     },
 
     showHoverTrue(index) {
@@ -65,22 +65,9 @@ export default {
 }
 
 .aside-container {
-  width: 200px;
+  width: 200px; /* 默认侧边栏宽度 */
   padding: 20px;
   overflow-y: auto;
-}
-
-.classify-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.classify-item {
-  padding: 5px;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .main-container {
@@ -92,11 +79,11 @@ export default {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 20px; /* 卡片之间的间距 */
 }
 
 .book-card {
-  width: 230px;
+  width: 230px; /* 卡片宽度 */
   padding: 10px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -150,7 +137,25 @@ export default {
 
 @media (max-width: 768px) {
   .aside-container {
-    width: 100%;
+    width: 45px; /* 在小屏幕上占据整个宽度 */
+    padding: 10px; /* 减少内边距 */
+  }
+
+  .card-container {
+    gap: 10px; /* 调整卡片之间的间距 */
+  }
+
+  .book-card {
+    width: 100%; /* 卡片宽度铺满容器 */
+    max-width: calc(40% - 10px);
+  }
+
+  .book-image {
+    height: 200px; /* 缩小图片高度 */
+  }
+
+  .book-name {
+    font-size: 12px; /* 调整书名字体大小 */
   }
 }
 </style>

@@ -71,12 +71,11 @@ export default {
   background-image: url('../../assets/background.png');
   background-size: cover;
   background-position: center;
-  /* filter: blur(5px); */ /* 添加背景虚化效果 */
 }
 
 .login-form {
   position: relative;
-  z-index: 1; /* 保证表单在虚化背景之上 */
+  z-index: 1;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 40px;
@@ -90,38 +89,62 @@ export default {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  justify-content: center; /* 居中按钮 */
+  justify-content: center;
 }
 
 label {
-  width: 60px; /* 缩小label宽度 */
+  width: 60px;
   text-align: right;
   margin-right: 10px;
-  font-size: 14px; /* 减小字体大小 */
+  font-size: 14px;
 }
 
 input[type="text"],
 input[type="password"] {
   flex: 1;
   padding: 10px;
-  font-size: 14px; /* 减小字体大小 */
+  font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 button {
   padding: 10px 20px;
-  margin: 0 5px; /* 调整按钮之间的间距 */
+  margin: 0 5px;
   cursor: pointer;
   border: none;
   background-color: #409EFF;
   color: #fff;
   border-radius: 4px;
-  /* transition: background-color 0.3s ease; */
 }
 
 button:hover {
   background-color: #66b1ff;
-  /* padding-right: 10px; */
+}
+</style>
+
+<style scoped>
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px; /* 减少内边距 */
+  }
+
+  label {
+    width: auto; /* 自适应宽度 */
+    margin-right: 0;
+    margin-bottom: 5px; /* 调整 label 和 input 之间的间距 */
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 12px; /* 缩小字体 */
+    margin-bottom: 10px; /* 调整输入框之间的间距 */
+  }
+
+  button {
+    padding: 8px 16px; /* 调整按钮的大小 */
+    font-size: 14px; /* 调整按钮字体大小 */
+    margin-bottom: 10px; /* 调整按钮之间的间距 */
+  }
 }
 </style>

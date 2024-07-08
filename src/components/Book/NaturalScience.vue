@@ -144,10 +144,12 @@ export default {
   opacity: 1; /* 显示时完全不透明 */
 }
 
+
 /* 响应式调整 */
 @media (max-width: 768px) {
   .aside-container {
-    width: 100%; /* 小屏幕上全宽 */
+    width: 45px; /* 在小屏幕上占据整个宽度 */
+    padding: 10px; /* 减少内边距 */
   }
 }
 </style>

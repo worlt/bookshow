@@ -52,16 +52,16 @@ export default {
   },
   methods: {
     fetchAuthorData() {
-      const encodedString = this.$route.query.All; // 从路由参数中获取编码后的字符串
-      const decodedString = decodeURIComponent(encodedString); // 对字符串进行解码
-      this.Book = JSON.parse(decodedString); // 将解码后的字符串解析为对象
+      const encodedString = this.$route.query.All;
+      const decodedString = decodeURIComponent(encodedString);
+      this.Book = JSON.parse(decodedString);
     },
     goBack() {
       this.$router.go(-1);
     },
     viewBook() {
-      const query = { All: JSON.stringify(this.Book) }; // 将当前书籍数据编码为字符串
-      this.$router.push({ path: `/Book/`, query }); // 跳转到书籍详情页面，并传递数据
+      const query = { All: JSON.stringify(this.Book) };
+      this.$router.push({ path: `/Book/`, query });
     }
   }
 };
@@ -101,16 +101,15 @@ export default {
 }
 
 /* 主体内容样式 */
-.main {
+main {
   flex: 1;
   padding: 20px;
+  overflow-y: auto;
 }
 
 /* 作者信息容器样式 */
 .author-info-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -119,8 +118,10 @@ export default {
 
 /* 作者图片容器样式 */
 .author-image-container {
-  flex: 0 0 250px;
-  margin-right: 20px;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 20px; /* 默认在电脑上保持右侧间距 */
+  margin-bottom: 20px;
 }
 
 .author-image {
@@ -134,27 +135,62 @@ export default {
 .author-details-container {
   flex: 1;
 }
+
 .author-name {
   font-size: 24px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
+
 .author-descriptions {
   font-size: 16px;
   color: #666;
 }
+
 .description {
   margin-bottom: 10px;
 }
+
 .label {
   font-weight: bold;
   color: #333;
 }
+
 .book-link {
   color: #1890ff;
   cursor: pointer;
 }
+
 .book-link:hover {
   color: #66b1ff;
+}
+
+@media (max-width: 768px) {
+  .author-info-container {
+    flex-direction: column; /* 在小屏幕上竖直排列 */
+    padding: 10px;
+  }
+
+  .author-image-container {
+    margin-right: 0; /* 在小屏幕上取消右侧间距 */
+    margin-bottom: 10px;
+    max-width: 100%; /* 适应小屏幕宽度 */
+  }
+
+  .author-details-container {
+    margin-left: 0; /* 在小屏幕上取消左侧间距 */
+  }
+
+  .author-info-container .author-details-container {
+    margin-top: 20px; /* 在小屏幕上调整详情部分与图片的间距 */
+  }
+
+  .author-name {
+    font-size: 20px; /* 调整作者名字体大小 */
+  }
+
+  .description {
+    font-size: 14px; /* 调整描述文本字体大小 */
+  }
 }
 </style>

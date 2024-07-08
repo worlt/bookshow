@@ -92,7 +92,8 @@ export default {
 /* 响应式调整 */
 @media (max-width: 768px) {
   .aside-container {
-    width: 100%; /* 小屏幕下全宽度 */
+    width: 45px; /* 在小屏幕上占据整个宽度 */
+    padding: 10px; /* 减少内边距 */
   }
 }
 </style>

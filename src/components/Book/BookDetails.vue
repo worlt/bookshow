@@ -4,12 +4,12 @@
       <button class="return-button" @click="esc">返回</button>
     </header>
     <main>
-      <h1 class="title">{{ Book.books.name }}</h1>
       <div class="book-info">
         <div class="book-image-container">
           <img :src="require('@/assets/BooksImg/' + Book.books.Image)" alt="Book" class="book-image">
         </div>
         <div class="book-details-container">
+          <h1 class="title">{{ Book.books.name }}</h1>
           <div class="book-details-item">
             <span class="label">作者：</span>
             <a class="link-author" @click="getAuthor">{{ Book.books.author }}</a>
@@ -175,12 +175,14 @@ export default {
 
 .book-info {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row; /* 默认在电脑上横向排列 */
 }
 
 .book-image-container {
-  width: 250px;
-  margin-right: 20px;
+  width: 100%;
+  max-width: 300px; /* 限制图片最大宽度 */
+  margin-right: 20px; /* 默认在电脑上保持右侧间距 */
+  margin-bottom: 20px;
 }
 
 .book-image {
@@ -210,6 +212,7 @@ export default {
 .icon-container-horizontal {
   display: flex;
   align-items: center;
+  flex-wrap: wrap; /* 在小屏幕上换行 */
   margin-top: 20px;
 }
 
@@ -292,5 +295,43 @@ export default {
 .dialog-button.confirm {
   background-color: #409EFF;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .book-info {
+    flex-direction: column; /* 在小屏幕上改为竖直排列 */
+    padding: 10px; /* 调整小屏幕下的内边距 */
+  }
+
+  .book-image-container {
+    margin-right: 0; /* 在小屏幕上不留右边距 */
+    margin-bottom: 10px;
+    max-width: 100%; /* 适应小屏幕宽度 */
+  }
+
+  .title {
+    font-size: 20px; /* 调整标题字体大小 */
+    margin: 10px 0;
+  }
+
+  .book-details-item {
+    margin-bottom: 5px; /* 调整详情项的间距 */
+  }
+
+  .label {
+    font-size: 14px; /* 调整标签字体大小 */
+  }
+
+  .icon-large {
+    margin-right: 10px; /* 调整图标间距 */
+  }
+
+  .comment-card {
+    padding: 8px; /* 调整评论卡片的内边距 */
+  }
+
+  .dialog {
+    width: 90%; /* 调整对话框宽度 */
+  }
 }
 </style>

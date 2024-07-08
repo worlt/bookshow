@@ -2,7 +2,7 @@
   <aside class="fixed">
     <div class="user-info">
       <img src="../../assets/man.png" class="avatar">
-      <span class="username">{{ username }}</span>
+      <div class="username">{{ username }}</div>
     </div>
     <nav class="menu">
       <ul>
@@ -100,5 +100,12 @@ export default {
 .username {
   font-size: 16px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .fixed {
+    width: 20%; /* 在小屏幕上占据整个宽度 */
+    max-width: 100%; /* 确保适应手机屏幕 */
+  }
 }
 </style>
